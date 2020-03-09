@@ -12,8 +12,6 @@ app.use(compression());
 const exampleMiddleware = require('./app/Middleware/ExampleMiddleware');
 app.use('/',exampleMiddleware({}));
 
-app.use(requestTime);
-
 
 const defaultRouter = require('./routers/default');
 app.use('/', defaultRouter);
