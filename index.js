@@ -14,6 +14,7 @@ app.use('/',exampleMiddleware({}));
 
 
 const defaultRouter = require('./routers/default');
+// defaultRouter.use(exampleMiddleware({}));
 app.use('/', defaultRouter);
 
 
