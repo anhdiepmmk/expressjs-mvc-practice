@@ -9,14 +9,8 @@ app.use(cors());
 app.use(compression());
 
 
-// const exampleMiddleware = require('./app/Middleware/ExampleMiddleware');
-// app.use('/',exampleMiddleware({}));
-
-const requestTime = function (req, res, next) {
-    console.log(new Date().getTime());
-    next();
-    console.log(2, new Date().getTime())
-};
+const exampleMiddleware = require('./app/Middleware/ExampleMiddleware');
+app.use('/',exampleMiddleware({}));
 
 app.use(requestTime);
 
