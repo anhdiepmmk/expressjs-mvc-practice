@@ -8,14 +8,7 @@ const port = 3000;
 app.use(cors());
 app.use(compression());
 
-
-const exampleMiddleware = require('./app/Middleware/ExampleMiddleware');
-app.use('/',exampleMiddleware({}));
-
-
 const defaultRouter = require('./routers/default');
-// defaultRouter.use(exampleMiddleware({}));
 app.use('/', defaultRouter);
-
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

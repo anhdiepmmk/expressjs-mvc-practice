@@ -10,6 +10,7 @@ exports.index = function(req, res) {
 };
 
 exports.show = function(req, res) {
+    console.log('show')
     res.status(200).json({
         message: 'show',
         payload: {

@@ -3,15 +3,21 @@ const router = express.Router();
 
 const exampleController = require('../app/Http/Controllers/ExampleController');
 
-router.use(function (req, res, next) {
-    console.log('Url iss: ' + req.url);
+//Declare middleware
+router.use('/example$', function (req, res, next) {
+    console.log('GOI VAO INDEX');
     next();
 });
 
-router.get('/', exampleController.index);
-router.get('/:id', exampleController.show);
-router.post('/', exampleController.store);
-router.put('/:id', exampleController.update);
-router.delete('/:id', exampleController.destroy);
+router.use('/example/:id(\\d+)', function (req, res, next) {
+    console.log('GOI VAO SHOW');
+    next();
+});
+
+router.get('/example$', exampleController.index);
+router.get('/example/:id(\\d+)', exampleController.show);
+router.post('/example/', exampleController.store);
+router.put('/example/:id', exampleController.update);
+router.delete('/example/:id', exampleController.destroy);
 
 module.exports = router;
