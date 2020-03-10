@@ -11,4 +11,4 @@ app.use(compression());
 const defaultRouter = require('./routers/default');
 app.use('/', defaultRouter);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`App listening on port ${port}!`));

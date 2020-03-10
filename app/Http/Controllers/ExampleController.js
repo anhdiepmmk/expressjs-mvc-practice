@@ -1,11 +1,27 @@
+const faker = require('faker');
+
 exports.index = function(req, res) {
-    console.log('index')
+    const payload = [];
+
+    for (let i = 0; i < 100; i++){
+        payload.push({
+            title: faker.name.title(),
+            image: Array.of(
+                faker.image.imageUrl(),
+                faker.image.imageUrl(),
+                faker.image.imageUrl()
+            ),
+            avatar: faker.internet.avatar(),
+            name: faker.name.findName(),
+            phone: faker.phone.phoneNumber(),
+            address: faker.address.streetName(),
+            desc: faker.lorem.text()
+        });
+    }
+
     res.status(200).json({
         message: 'index',
-        payload: {
-            'query': req.query,
-            'params': req.params
-        }
+        payload: payload
     });
 };
 
@@ -14,8 +30,17 @@ exports.show = function(req, res) {
     res.status(200).json({
         message: 'show',
         payload: {
-            'query': req.query,
-            'params': req.params
+            title: faker.name.title(),
+            image: Array.of(
+                faker.image.imageUrl(),
+                faker.image.imageUrl(),
+                faker.image.imageUrl()
+            ),
+            avatar: faker.internet.avatar(),
+            name: faker.name.findName(),
+            phone: faker.phone.phoneNumber(),
+            address: faker.address.streetName(),
+            desc: faker.lorem.text()
         }
     });
 };
@@ -24,20 +49,49 @@ exports.store = function(req, res) {
     res.status(200).json({
         message: 'store',
         payload: {
-            'query': req.query,
-            'params': req.params
+            title: faker.name.title(),
+            image: Array.of(
+                faker.image.imageUrl(),
+                faker.image.imageUrl(),
+                faker.image.imageUrl()
+            ),
+            avatar: faker.internet.avatar(),
+            name: faker.name.findName(),
+            phone: faker.phone.phoneNumber(),
+            address: faker.address.streetName(),
+            desc: faker.lorem.text()
         }
     });
 };
 
 exports.update = function(req, res) {
     res.status(200).json({
-        message: 'update'
+        title: faker.name.title(),
+        image: Array.of(
+            faker.image.imageUrl(),
+            faker.image.imageUrl(),
+            faker.image.imageUrl()
+        ),
+        avatar: faker.internet.avatar(),
+        name: faker.name.findName(),
+        phone: faker.phone.phoneNumber(),
+        address: faker.address.streetName(),
+        desc: faker.lorem.text()
     });
 };
 
 exports.destroy = function(req, res) {
     res.status(200).json({
-        message: 'destroy'
+        title: faker.name.title(),
+        image: Array.of(
+            faker.image.imageUrl(),
+            faker.image.imageUrl(),
+            faker.image.imageUrl()
+        ),
+        avatar: faker.internet.avatar(),
+        name: faker.name.findName(),
+        phone: faker.phone.phoneNumber(),
+        address: faker.address.streetName(),
+        desc: faker.lorem.text()
     });
 };
