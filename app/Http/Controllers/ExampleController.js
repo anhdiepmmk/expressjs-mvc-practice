@@ -1,6 +1,7 @@
 const faker = require('faker');
 
 exports.index = function(req, res) {
+    throw new Error();
     const payload = [];
 
     for (let i = 0; i < 100; i++){

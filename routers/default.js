@@ -20,4 +20,14 @@ router.post('/example/', exampleController.store);
 router.put('/example/:id', exampleController.update);
 router.delete('/example/:id', exampleController.destroy);
 
+
+//error handler
+router.use(function (err, req, res, next) {
+    if (res.headersSent) {
+        return next(err)
+    }
+    //console.log(err);
+    res.status(500).json({ error: err.stack })
+});
+
 module.exports = router;
