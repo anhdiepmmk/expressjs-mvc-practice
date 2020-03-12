@@ -21,13 +21,18 @@ router.put('/example/:id', exampleController.update);
 router.delete('/example/:id', exampleController.destroy);
 
 
-//error handler
+//error handler: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
 router.use(function (err, req, res, next) {
     if (res.headersSent) {
         return next(err)
     }
-    //console.log(err);
+    console.error(err.name)    //CustomError
+    console.error(err.foo)     //baz
+    console.error(err.message) //bazMessage
+    console.error(err.stack)   //stacktrace
     res.status(500).json({ error: err.stack })
 });
+
+//{"error":{"code":"GEN-NOT-FOUND","http_code":404,"message":"Resource Not Found"}}
 
 module.exports = router;
