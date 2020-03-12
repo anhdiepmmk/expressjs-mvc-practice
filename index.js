@@ -8,6 +8,14 @@ const port = 3000;
 app.use(cors());
 app.use(compression());
 
+app.use(function (err, req, res, next) {
+    if (res.headersSent) {
+        return next(err)
+    }
+    res.status(500)
+    res.render('error', { error: err })
+})
+
 const defaultRouter = require('./routers/default');
 app.use('/', defaultRouter);
 
